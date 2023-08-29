@@ -30,7 +30,8 @@ const rem=parseInt(getComputedStyle(document.documentElement).fontSize)
 let nav=document.getElementById("navbar")
 let register=document.getElementById("register")
 let nav_stick=navbar.offsetTop
-let register_stick=register.offsetTop-(5*rem)
+let register_stick=register.offsetTop
+register_stick=register_stick-(5*rem)
 window.onscroll= () => {
 	if (window.pageYOffset >= nav_stick) {
 		navbar.classList.add("navbar-stick")
