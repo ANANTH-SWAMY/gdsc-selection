@@ -8,7 +8,7 @@ let testimonials=[
 		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus"
 	},
 	{
-		name: "Valentino Rossi."
+		name: "Valentino Rossi.",
 		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus"
 	},
 	{
@@ -25,7 +25,22 @@ let testimonials=[
 	}
 ]
 
-function renderTestimonials(){
-	let carousel=document.getElementById("testimonials-carousel")
+const rem=parseInt(getComputedStyle(document.documentElement).fontSize)
 
+let nav=document.getElementById("navbar")
+let register=document.getElementById("register")
+let nav_stick=navbar.offsetTop
+let register_stick=register.offsetTop-(5*rem)
+window.onscroll= () => {
+	if (window.pageYOffset >= nav_stick) {
+		navbar.classList.add("navbar-stick")
+	} else {
+		navbar.classList.remove("navbar-stick")
+	}
+	if(window.pageYOffset>= register_stick){
+		register.classList.add("register-stick")
+	}else{
+		register.classList.remove("register-stick")
+	}
 }
+
