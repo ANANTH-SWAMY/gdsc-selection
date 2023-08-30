@@ -1,69 +1,34 @@
-let testimonials=[
-	{
-		name: "William James.",
-		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus"
-	},
-	{
-		name: "Jim Clarke.",
-		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus"
-	},
-	{
-		name: "Valentino Rossi.",
-		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus"
-	},
-	{
-		name: "Tom Kristensen.",
-		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus"
-	},
-	{
-		name: "Nigel Mansell.",
-		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus"
-	},
-	{
-		name: "Marc Marquez.",
-		message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus"
-	}
+i=0
+let carousel=document.getElementById("testimonials-slider")
+let pagination=[
+	document.getElementById("pagination1"),
+	document.getElementById("pagination2"),
+	document.getElementById("pagination3")
 ]
 
-let number_of_testimonials=testimonials.length
-function renderTestimonials(i){
-	let carousel=document.getElementById("testimonials-carousel")
-	carousel.innerHTML=`
-	<div class="testimonials-carousel-page">
-		<div class="testimonials-card">
-			<img class="testimonials-card-img" src="assets/skeleton-avatar.png">
-			<div class="testimonials-card-content">
-				<div class="testimonials-card-title">${testimonials[i].name}</div>
-				<div class="testimonials-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus</div>
-			</div>
-		</div>
-		<div class="testimonials-card">
-			<img class="testimonials-card-img" src="assets/skeleton-avatar.png">
-			<div class="testimonials-card-content">
-				<div class="testimonials-card-title">${testimonials[i+1].name}</div>
-				<div class="testimonials-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venematis, lectus</div>
-			</div>
-		</div>
-	</div>
-	`
+function change(t){
+	if(t===1){
+		if(i!=2){
+			i++;
+			carousel.style.transform=`translateX(-${i*33.33}%)`	
+			pagination[i].classList.add("in-use")
+			pagination[i-1].classList.remove("in-use")
+		}
+	}else{
+		if(i!=0){
+			i--;
+			carousel.style.transform=`translateX(-${i*33.33}%)`
+			pagination[i].classList.add("in-use")
+			pagination[i+1].classList.remove("in-use")
+		}
+	}
 }
 
-renderTestimonials(0)
-
-i=0
-function change(type){
-	if(type==1){
-		if(i!=number_of_testimonials-2){
-			i=i+2
-			renderTestimonials(i);
-		}
-	}
-	else{
-		if(i!=0){
-			i=i-2
-			renderTestimonials(i)
-		}
-	}
+function goto_testimonial(n){
+	pagination[n].classList.add("in-use")
+	pagination[i].classList.remove("in-use")
+	i=n
+	carousel.style.transform=`translateX(-${i*33.33}%)`	
 }
 
 const rem=parseInt(getComputedStyle(document.documentElement).fontSize)
