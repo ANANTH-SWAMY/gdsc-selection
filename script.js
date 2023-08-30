@@ -50,3 +50,16 @@ window.onscroll= () => {
 		register.classList.remove("register-stick")
 	}
 }
+
+const observer=new IntersectionObserver((e) => {
+	e.forEach((entry) => {
+		if(entry.isIntersecting){
+			entry.target.classList.add("show")
+		}else{
+			entry.target.classList.remove("show")
+		}
+	})
+})
+
+let hidden_elements=document.querySelectorAll(".hidden")
+hidden_elements.forEach((element) => observer.observe(element))
