@@ -98,8 +98,20 @@ body{
 }
 
 .register-now{
-	position: absolute;
-	left: 3.75rem;
+	/* position: absolute; */
+	/* left: 3.75rem; */
+	height: 3rem;
+	width: 10rem;
+	border-radius: 25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.2s;
+}
+
+.register-now:hover{
+	cursor: pointer;
+	background: #5D5FEF;
 }
 
 .register-right{
