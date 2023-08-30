@@ -184,6 +184,7 @@ section{
 .domains-list{
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 	gap: 9rem;
 }
 
@@ -212,13 +213,33 @@ section{
 .testimonials-container{
 	display: flex;
 	flex-direction: column;
-	gap: 5rem;
+	gap: 4rem;
 	align-items: center;
 }
 
 .testimonials-title{
 	font-size: 4rem;
 	font-weight: 600;
+}
+
+.testimonials-carousel{
+	height: 20rem;
+	width: 74rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5rem;
+	overflow: hidden;
+}
+
+.testimonials-carousel-page:nth-child(1){
+	position: relative;
+	left: 1rem;
+}
+
+.testimonials-carousel-page{
+	display: flex;
+	gap: 1.8rem;
 }
 
 .testimonials-card{
@@ -246,4 +267,9 @@ section{
 .testimonials-card-text{
 	height: 6.25rem;
 	width: 16.25rem;
+}
+
+.testimonials-pagination{
+	display: flex;
+	gap: 1.5rem;
 }
