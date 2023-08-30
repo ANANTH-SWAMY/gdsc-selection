@@ -51,7 +51,7 @@ window.onscroll= () => {
 	}
 }
 
-const observer=new IntersectionObserver((e) => {
+const observer = new IntersectionObserver((e) => {
 	e.forEach((entry) => {
 		if(entry.isIntersecting){
 			entry.target.classList.add("show")
@@ -63,3 +63,18 @@ const observer=new IntersectionObserver((e) => {
 
 let hidden_elements=document.querySelectorAll(".hidden")
 hidden_elements.forEach((element) => observer.observe(element))
+
+let nav_bar_shown=0
+function toggle_nav(){
+	let nav = document.getElementById("navbar-buttons-menu")
+	let body = document.body
+	if(nav_bar_shown===0){
+		nav.classList.remove("nav_closed")
+		nav.classList.add("nav_open")
+		nav_bar_shown=1
+	}else{
+		nav.classList.remove("nav_open")
+		nav.classList.add("nav_closed")
+		nav_bar_shown=0
+	}
+}
